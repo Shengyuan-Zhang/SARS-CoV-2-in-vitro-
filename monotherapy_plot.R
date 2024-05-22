@@ -12,7 +12,7 @@ source("monotherapy_function.R")
 ####### STEP 2 format the data per drug######
 # for each of 1-4 drugs makes a dataset of just the monotherapy data
 # use the extract.monotherapy function to format the data:
-# mergedcsv - the name of the formatted file, drugno - in accordance with the drug number in the file,
+# mergedcsv - the name of the formatted file, drugno - same as the drug number (drugno) in formatted data,
 # virus - the virus strain used in the assay, MW - molecular weight to change the concentration into uM
 df1 <- extract.monotherapy(mergedcsv = "Wuhan_merged.csv", drugno = 1, virus = "Wuhan", MW = 602.6)
 df2 <- extract.monotherapy(mergedcsv = "Wuhan_merged.csv", drugno = 2, virus = "Wuhan", MW = 157.10)
@@ -25,15 +25,15 @@ dfmono <- rbind(df1, df2, df3, df4)
 #dfmono <- rbind(df1, df2)
 
 # extract the monotherapy data for cytotoxicity
-df1 <- extract.monotherapy(mergedcsv = "Wuhan_cytotoxicity_merged.csv", drugno = 1, 
+df1.c <- extract.monotherapy(mergedcsv = "Wuhan_cytotoxicity_merged.csv", drugno = 1, 
                            virus = "cytotoxicity", MW = 602.6)
-df2 <- extract.monotherapy(mergedcsv = "Wuhan_cytotoxicity_merged.csv", drugno = 2, 
+df2.c <- extract.monotherapy(mergedcsv = "Wuhan_cytotoxicity_merged.csv", drugno = 2, 
                            virus = "cytotoxicity", MW = 157.10)
-df3 <- extract.monotherapy(mergedcsv = "Wuhan_cytotoxicity_merged.csv", drugno = 3, 
+df3.c <- extract.monotherapy(mergedcsv = "Wuhan_cytotoxicity_merged.csv", drugno = 3, 
                            virus = "cytotoxicity", MW = 499.5)
-df4 <- extract.monotherapy(mergedcsv = "Wuhan_cytotoxicity_merged.csv", drugno = 4, 
+df4.c <- extract.monotherapy(mergedcsv = "Wuhan_cytotoxicity_merged.csv", drugno = 4, 
                            virus = "cytotoxicity", MW = 259.22)
-dfcyto <- rbind(df1, df2, df3, df4)
+dfcyto <- rbind(df1.c, df2.c, df3.c, df4.c)
 
 ######## plot raw monotherapy data ########
 # plots the data
